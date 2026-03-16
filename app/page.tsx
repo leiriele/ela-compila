@@ -69,8 +69,8 @@ export default function Home() {
           </h1>
 
           <p className="text-lg md:text-xl text-slate-600 mb-8">
-            Um blog com tutoriais rápidos, aprendizados reais e conteúdos
-            técnicos para garotas que constroem tecnologia.
+            Um blog com tutoriais rápidos,
+            aprendizados reais e conteúdos técnicos sobre desenvolvimento, automação e infraestrutura.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -183,7 +183,7 @@ export default function Home() {
 
           {success && (
             <p className="text-green-600 mt-4 text-sm">
-              Obrigada! Você será avisada quando novos artigos forem publicados.
+              Obrigada! Você será avisado(a) quando novos artigos forem publicados.
             </p>
           )}
 

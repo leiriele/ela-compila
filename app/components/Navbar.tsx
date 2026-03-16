@@ -11,7 +11,7 @@ export default function Navbar() {
 
           <div>
             <p className="font-bold text-slate-900 leading-none">Ela Compila</p>
-            <p className="text-xs text-slate-500">blog para garotas de TI</p>
+            <p className="text-xs text-slate-500">Aprendizados práticos de desenvolvimento e engenharia de software.</p>
           </div>
         </Link>
 
