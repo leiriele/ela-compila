@@ -2,34 +2,34 @@ import Link from "next/link";
 
 export default function DockerConcepts() {
   return (
-    <article className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-purple-50">
+    <article className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       <div className="max-w-3xl mx-auto px-6 py-12">
 
         <Link
           href="/blog"
-          className="text-sm text-pink-700 hover:underline mb-8 inline-block"
+          className="text-sm text-pink-700 hover:underline mb-8 inline-block dark:text-pink-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 rounded px-2 py-1"
         >
           ← Voltar
         </Link>
 
         <header className="mb-12">
 
-          <span className="inline-block bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-xs font-medium mb-4">
+          <span className="inline-block bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-xs font-medium mb-4 dark:bg-pink-900 dark:text-pink-200">
             Docker
           </span>
 
-          <h1 className="text-5xl font-bold text-slate-900 leading-tight mb-4">
+          <h1 className="text-5xl font-bold text-slate-900 leading-tight mb-4 dark:text-white">
             Diferença entre container, imagem e volume
           </h1>
 
-          <p className="text-lg text-slate-600 max-w-2xl mb-8">
+          <p className="text-lg text-slate-600 max-w-2xl mb-8 dark:text-slate-200">
             Ao começar a trabalhar com Docker, três conceitos aparecem
             constantemente: imagens, containers e volumes. Entender a
             diferença entre eles é essencial para construir ambientes
             consistentes e escaláveis.
           </p>
 
-          <div className="flex items-center gap-4 border-t border-b border-pink-100 py-4 text-sm text-slate-500">
+          <div className="flex items-center gap-4 border-t border-b border-pink-100 py-4 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
 
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white flex items-center justify-center font-semibold">
@@ -37,20 +37,20 @@ export default function DockerConcepts() {
               </div>
 
               <div>
-                <p className="font-medium text-slate-800">
+                <p className="font-medium text-slate-800 dark:text-slate-200">
                   Leiriele Corrêa
                 </p>
-                <p className="text-xs">
+                <p className="text-xs dark:text-slate-400">
                   Autora
                 </p>
               </div>
             </div>
 
-            <span className="text-pink-300">•</span>
+            <span className="text-pink-300 dark:text-slate-600">•</span>
 
             <p>03 fev 2026</p>
 
-            <span className="text-pink-300">•</span>
+            <span className="text-pink-300 dark:text-slate-600">•</span>
 
             <p>Leitura de 5 min</p>
 
@@ -58,9 +58,9 @@ export default function DockerConcepts() {
 
         </header>
 
-        <section className="space-y-8 text-slate-700 leading-8 text-lg">
+        <section className="space-y-8 text-slate-700 leading-8 text-lg dark:text-slate-200">
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             O que é uma imagem Docker
           </h2>
 
@@ -75,7 +75,7 @@ export default function DockerConcepts() {
             containers.
           </p>
 
-          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto">
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
 {`docker build -t minha-api .`}
           </pre>
 
@@ -84,7 +84,7 @@ export default function DockerConcepts() {
             baseada no Dockerfile do projeto.
           </p>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             O que é um container
           </h2>
 
@@ -98,7 +98,7 @@ export default function DockerConcepts() {
             em qualquer máquina.
           </p>
 
-          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto">
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
 {`docker run minha-api`}
           </pre>
 
@@ -107,7 +107,7 @@ export default function DockerConcepts() {
             é criado baseado na imagem especificada.
           </p>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             O que são volumes
           </h2>
 
@@ -121,7 +121,7 @@ export default function DockerConcepts() {
             Volumes permitem persistir dados fora do container.
           </p>
 
-          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto">
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
 {`docker volume create db_data`}
           </pre>
 
@@ -130,7 +130,7 @@ export default function DockerConcepts() {
             dados de forma permanente.
           </p>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             Como esses conceitos trabalham juntos
           </h2>
 
@@ -140,14 +140,14 @@ export default function DockerConcepts() {
             <li>Volume → armazena dados persistentes</li>
           </ul>
 
-          <div className="bg-purple-50 border border-purple-200 p-5 rounded-xl">
-            <p className="text-purple-800 text-sm">
+          <div className="bg-purple-50 border border-purple-200 p-5 rounded-xl dark:bg-purple-950 dark:border-purple-900">
+            <p className="text-purple-800 text-sm dark:text-purple-300">
               💡 Separar aplicação, execução e armazenamento torna os
               sistemas mais portáveis e fáceis de escalar.
             </p>
           </div>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             Conclusão
           </h2>
 
@@ -160,15 +160,15 @@ export default function DockerConcepts() {
 
         </section>
 
-        <div className="mt-16 border-t border-pink-100 pt-10">
+        <div className="mt-16 border-t border-pink-100 pt-10 dark:border-slate-800">
 
-          <p className="text-sm text-slate-500 mb-4">
+          <p className="text-sm text-slate-500 mb-4 dark:text-slate-400">
             Gostou do artigo?
           </p>
 
           <Link
             href="/blog"
-            className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-xl font-medium hover:opacity-90 transition"
+            className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-xl font-medium hover:opacity-90 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-600"
           >
             Ver mais artigos
           </Link>

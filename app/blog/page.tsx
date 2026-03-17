@@ -76,13 +76,13 @@ function SectionHeader({
   return (
     <div className="mb-6 mt-14">
       <div className="flex flex-wrap items-center gap-3 mb-2">
-        <h2 className="text-2xl font-bold text-slate-900">{title}</h2>
-        <span className="rounded-full bg-white border border-pink-100 px-3 py-1 text-sm text-slate-500">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{title}</h2>
+        <span className="rounded-full bg-white border border-pink-100 px-3 py-1 text-sm text-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200">
           {count} artigo{count !== 1 ? "s" : ""}
         </span>
       </div>
 
-      <p className="text-slate-600 max-w-3xl">{description}</p>
+      <p className="text-slate-600 max-w-3xl dark:text-slate-200">{description}</p>
     </div>
   );
 }
@@ -91,20 +91,18 @@ function PostCard({ post }: { post: Post }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="block bg-white border border-pink-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition"
+      className="block bg-white border border-pink-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition dark:bg-slate-900 dark:border-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500"
     >
       <div className="flex flex-wrap items-center gap-3 mb-3 text-sm">
-        <span className="bg-pink-100 text-pink-700 px-3 py-1 rounded-full font-medium">
+        <span className="bg-pink-100 text-pink-700 px-3 py-1 rounded-full font-medium dark:bg-pink-900 dark:text-pink-200">
           {post.category}
         </span>
-        <span className="text-slate-400">{post.date}</span>
+        <span className="text-slate-400 dark:text-slate-500">{post.date}</span>
       </div>
 
-      <h3 className="text-xl font-semibold text-slate-900 mb-3">
-        {post.title}
-      </h3>
+      <h3 className="text-lg font-bold text-slate-900 mb-3 dark:text-white">{post.title}</h3>
 
-      <p className="text-slate-600 leading-7">{post.excerpt}</p>
+      <p className="text-slate-600 leading-7 dark:text-slate-200">{post.excerpt}</p>
     </Link>
   );
 }
@@ -130,16 +128,16 @@ export default function BlogPage() {
   const pythonPosts = filteredPosts.filter((p) => p.category === "Python");
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-purple-50">
+    <main className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       <section className="max-w-5xl mx-auto px-6 py-16">
         <div className="mb-12">
-          <p className="text-pink-700 font-medium mb-2">Blog</p>
+          <p className="text-pink-700 font-medium mb-2 dark:text-pink-200">Blog</p>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 dark:text-white">
             Tutoriais e aprendizados
           </h1>
 
-          <p className="text-slate-600 max-w-3xl mb-6 leading-8">
+          <p className="text-slate-600 max-w-3xl mb-6 leading-8 dark:text-slate-200">
             Conteúdos sobre Docker, backend, APIs, Python e automação, com foco
             em prática, organização de projetos e exemplos que podem ser
             aplicados no dia a dia de desenvolvimento.
@@ -150,13 +148,13 @@ export default function BlogPage() {
               <input
                 type="text"
                 placeholder="Buscar por título, tema ou tecnologia..."
-                className="w-full p-3 rounded-xl border border-pink-200 bg-white focus:outline-none focus:ring-2 focus:ring-pink-300"
+                className="w-full p-3 rounded-xl border border-pink-200 bg-white focus:outline-none focus:ring-2 focus:ring-pink-400 dark:border-slate-700 dark:bg-slate-900 dark:focus:ring-slate-600"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
 
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-slate-500 dark:text-slate-300">
               {filteredPosts.length} resultado
               {filteredPosts.length !== 1 ? "s" : ""} encontrado
               {filteredPosts.length !== 1 ? "s" : ""}
@@ -165,11 +163,11 @@ export default function BlogPage() {
         </div>
 
         {filteredPosts.length === 0 && (
-          <div className="rounded-2xl border border-pink-100 bg-white p-8 shadow-sm">
-            <h2 className="text-xl font-semibold text-slate-900 mb-2">
+          <div className="rounded-2xl border border-pink-100 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <h2 className="text-xl font-semibold text-slate-900 mb-2 dark:text-white">
               Nenhum artigo encontrado
             </h2>
-            <p className="text-slate-600 leading-7">
+            <p className="text-slate-600 leading-7 dark:text-slate-200">
               Tente buscar por termos como Docker, Django, API, Swagger, Python
               ou automação.
             </p>

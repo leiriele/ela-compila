@@ -1,229 +1,199 @@
-"use client";
-
-import { useMemo, useState } from "react";
 import Link from "next/link";
 
-const posts = [
-  {
-    title: "Diferença entre container, imagem e volume",
-    slug: "docker-conceitos",
-    date: "03 fev 2026",
-    category: "Docker",
-    excerpt:
-      "Entenda os conceitos fundamentais do Docker e como imagem, container e volume trabalham juntos no dia a dia.",
-  },
-  {
-    title: "Erros comuns com .env no Docker Compose",
-    slug: "docker-env-erros",
-    date: "12 fev 2026",
-    category: "Docker",
-    excerpt:
-      "Veja falhas frequentes no uso de variáveis de ambiente e como evitar problemas de configuração em projetos containerizados.",
-  },
-  {
-    title: "Como subir uma API Django com Docker Compose",
-    slug: "django-docker-compose",
-    date: "25 fev 2026",
-    category: "Docker",
-    excerpt:
-      "Um guia prático para estruturar, subir e manter uma API Django com Docker Compose de forma organizada.",
-  },
-  {
-    title: "Boas práticas de APIs REST",
-    slug: "boas-praticas-api-rest",
-    date: "02 mar 2026",
-    category: "Backend",
-    excerpt:
-      "Aprenda padrões importantes para rotas, métodos HTTP, respostas JSON e versionamento de APIs.",
-  },
-  {
-    title: "Integração Django + API externa",
-    slug: "django-api-externa",
-    date: "07 mar 2026",
-    category: "Backend",
-    excerpt:
-      "Saiba como consumir APIs externas em Django com tratamento de erros e organização do código.",
-  },
-  {
-    title: "Como documentar endpoints com Swagger/OpenAPI",
-    slug: "swagger-openapi",
-    date: "11 mar 2026",
-    category: "Backend",
-    excerpt:
-      "Documente endpoints de forma clara para facilitar integrações, testes e manutenção do projeto.",
-  },
-  {
-    title: "Automatizando relatórios com Python (Flask)",
-    slug: "relatorios-python-flask",
-    date: "14 mar 2026",
-    category: "Python",
-    excerpt:
-      "Um exemplo de automação com Python e Flask para gerar alertas e relatórios em cenários reais.",
-  },
-];
-
-type Post = (typeof posts)[number];
-
-function SectionHeader({
-  title,
-  description,
-  count,
-}: {
-  title: string;
-  description: string;
-  count: number;
-}) {
+export default function SwaggerOpenAPI() {
   return (
-    <div className="mb-6 mt-14">
-      <div className="flex flex-wrap items-center gap-3 mb-2">
-        <h2 className="text-2xl font-bold text-slate-900">{title}</h2>
-        <span className="rounded-full bg-white border border-pink-100 px-3 py-1 text-sm text-slate-500">
-          {count} artigo{count !== 1 ? "s" : ""}
-        </span>
-      </div>
+    <article className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+      <div className="max-w-3xl mx-auto px-6 py-12">
 
-      <p className="text-slate-600 max-w-3xl">{description}</p>
-    </div>
-  );
-}
+        <Link
+          href="/blog"
+          className="text-sm text-pink-700 hover:underline mb-8 inline-block dark:text-pink-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 rounded px-2 py-1"
+        >
+          ← Voltar
+        </Link>
 
-function PostCard({ post }: { post: Post }) {
-  return (
-    <Link
-      href={`/blog/${post.slug}`}
-      className="block bg-white border border-pink-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition"
-    >
-      <div className="flex flex-wrap items-center gap-3 mb-3 text-sm">
-        <span className="bg-pink-100 text-pink-700 px-3 py-1 rounded-full font-medium">
-          {post.category}
-        </span>
-        <span className="text-slate-400">{post.date}</span>
-      </div>
+        <header className="mb-12">
 
-      <h3 className="text-xl font-semibold text-slate-900 mb-3">
-        {post.title}
-      </h3>
+          <span className="inline-block bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-xs font-medium mb-4 dark:bg-pink-900 dark:text-pink-200">
+            Backend
+          </span>
 
-      <p className="text-slate-600 leading-7">{post.excerpt}</p>
-    </Link>
-  );
-}
-
-export default function BlogPage() {
-  const [search, setSearch] = useState("");
-
-  const filteredPosts = useMemo(() => {
-    const term = search.toLowerCase().trim();
-
-    if (!term) return posts;
-
-    return posts.filter(
-      (post) =>
-        post.title.toLowerCase().includes(term) ||
-        post.category.toLowerCase().includes(term) ||
-        post.excerpt.toLowerCase().includes(term)
-    );
-  }, [search]);
-
-  const dockerPosts = filteredPosts.filter((p) => p.category === "Docker");
-  const backendPosts = filteredPosts.filter((p) => p.category === "Backend");
-  const pythonPosts = filteredPosts.filter((p) => p.category === "Python");
-
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-purple-50">
-      <section className="max-w-5xl mx-auto px-6 py-16">
-        <div className="mb-12">
-          <p className="text-pink-700 font-medium mb-2">Blog</p>
-
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Tutoriais e aprendizados
+          <h1 className="text-5xl font-bold text-slate-900 leading-tight mb-4 dark:text-white">
+            Como documentar endpoints com Swagger/OpenAPI
           </h1>
 
-          <p className="text-slate-600 max-w-3xl mb-6 leading-8">
-            Conteúdos sobre Docker, backend, APIs, Python e automação, com foco
-            em prática, organização de projetos e exemplos que podem ser
-            aplicados no dia a dia de desenvolvimento.
+          <p className="text-lg text-slate-600 max-w-2xl mb-8 dark:text-slate-200">
+            Documentação clara de APIs é essencial para facilitar integrações,
+            testes e manutenção do projeto. Swagger/OpenAPI é o padrão da
+            indústria para documentar APIs REST.
           </p>
 
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div className="w-full md:max-w-md">
-              <input
-                type="text"
-                placeholder="Buscar por título, tema ou tecnologia..."
-                className="w-full p-3 rounded-xl border border-pink-200 bg-white focus:outline-none focus:ring-2 focus:ring-pink-300"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
+          <div className="flex items-center gap-4 border-t border-b border-pink-100 py-4 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
+
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white flex items-center justify-center font-semibold">
+                L
+              </div>
+
+              <div>
+                <p className="font-medium text-slate-800 dark:text-slate-200">
+                  Leiriele Corrêa
+                </p>
+                <p className="text-xs dark:text-slate-400">
+                  Autora
+                </p>
+              </div>
             </div>
 
-            <p className="text-sm text-slate-500">
-              {filteredPosts.length} resultado
-              {filteredPosts.length !== 1 ? "s" : ""} encontrado
-              {filteredPosts.length !== 1 ? "s" : ""}
+            <span className="text-pink-300 dark:text-slate-600">•</span>
+
+            <p>11 mar 2026</p>
+
+            <span className="text-pink-300 dark:text-slate-600">•</span>
+
+            <p>Leitura de 7 min</p>
+
+          </div>
+
+        </header>
+
+        <section className="space-y-8 text-slate-700 leading-8 text-lg dark:text-slate-200">
+
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+            O que é Swagger/OpenAPI
+          </h2>
+
+          <p>
+            Swagger é uma especificação aberta para descrever APIs REST de forma
+            padronizada e legível. OpenAPI é a evolução da especificação Swagger,
+            mantida pela Linux Foundation.
+          </p>
+
+          <p>
+            Com Swagger/OpenAPI você documenta:
+          </p>
+
+          <ul className="list-disc ml-6 space-y-2">
+            <li>Endpoints disponíveis</li>
+            <li>Métodos HTTP suportados</li>
+            <li>Parâmetros de entrada</li>
+            <li>Respostas esperadas</li>
+            <li>Códigos de erro</li>
+            <li>Autenticação necessária</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+            Por que usar Swagger
+          </h2>
+
+          <div className="bg-purple-50 border border-purple-200 p-5 rounded-xl dark:bg-purple-950 dark:border-purple-900">
+            <p className="text-purple-800 text-sm dark:text-purple-300">
+              💡 Swagger fornece uma interface web interativa para explorar e testar
+              sua API, melhorando a experiência do desenvolvedor.
             </p>
           </div>
+
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+            Instalação com Django
+          </h2>
+
+          <p>
+            Para usar Swagger com Django, instale o package drf-spectacular:
+          </p>
+
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
+{`pip install drf-spectacular`}
+          </pre>
+
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+            Configuração básica
+          </h2>
+
+          <p>
+            Adicione ao settings.py do seu projeto Django:
+          </p>
+
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
+{`INSTALLED_APPS = [
+    ...
+    'drf_spectacular',
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}`}
+          </pre>
+
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+            Adicionando endpoints de Swagger
+          </h2>
+
+          <p>
+            Configure as URLs no urls.py:
+          </p>
+
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
+{`from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+
+urlpatterns = [
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('docs/', SpectacularSwaggerView.as_view(url_name='schema')),
+]`}
+          </pre>
+
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+            Documentando endpoints
+          </h2>
+
+          <p>
+            Use decoradores para documentar suas views:
+          </p>
+
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
+{`from drf_spectacular.utils import extend_schema
+from rest_framework.decorators import api_view
+
+@extend_schema(
+    description="Busca todos os usuários",
+    responses={200: UserSerializer(many=True)}
+)
+@api_view(['GET'])
+def list_users(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data)`}
+          </pre>
+
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+            Boas práticas
+          </h2>
+
+          <ul className="list-disc ml-6 space-y-3">
+            <li>Descreva todos os endpoints</li>
+            <li>Documente respostas de erro</li>
+            <li>Use exemplos práticos</li>
+            <li>Mantenha a documentação atualizada</li>
+            <li>Não deixe endpoints internos expostos</li>
+          </ul>
+
+        </section>
+
+        <div className="mt-16 border-t border-pink-100 pt-10 dark:border-slate-800">
+
+          <p className="text-sm text-slate-500 mb-4 dark:text-slate-400">
+            Gostou do artigo?
+          </p>
+
+          <Link
+            href="/blog"
+            className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-xl font-medium hover:opacity-90 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-600"
+          >
+            Ver mais artigos
+          </Link>
+
         </div>
 
-        {filteredPosts.length === 0 && (
-          <div className="rounded-2xl border border-pink-100 bg-white p-8 shadow-sm">
-            <h2 className="text-xl font-semibold text-slate-900 mb-2">
-              Nenhum artigo encontrado
-            </h2>
-            <p className="text-slate-600 leading-7">
-              Tente buscar por termos como Docker, Django, API, Swagger, Python
-              ou automação.
-            </p>
-          </div>
-        )}
-
-        {dockerPosts.length > 0 && (
-          <>
-            <SectionHeader
-              title="Docker"
-              description="Artigos voltados para fundamentos de containers, configuração com Docker Compose e boas práticas para ambientes reproduzíveis."
-              count={dockerPosts.length}
-            />
-
-            <div className="grid gap-6 md:grid-cols-2">
-              {dockerPosts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-          </>
-        )}
-
-        {backendPosts.length > 0 && (
-          <>
-            <SectionHeader
-              title="Backend & APIs"
-              description="Conteúdos sobre construção de APIs, integração entre serviços, padrões REST e documentação técnica para projetos reais."
-              count={backendPosts.length}
-            />
-
-            <div className="grid gap-6 md:grid-cols-2">
-              {backendPosts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-          </>
-        )}
-
-        {pythonPosts.length > 0 && (
-          <>
-            <SectionHeader
-              title="Python & Automação"
-              description="Exemplos práticos de automação com Python, geração de relatórios e pequenos serviços para otimizar processos."
-              count={pythonPosts.length}
-            />
-
-            <div className="grid gap-6 md:grid-cols-2">
-              {pythonPosts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-          </>
-        )}
-      </section>
-    </main>
+      </div>
+    </article>
   );
 }

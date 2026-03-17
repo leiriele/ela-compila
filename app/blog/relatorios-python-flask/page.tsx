@@ -2,27 +2,27 @@ import Link from "next/link";
 
 export default function FlaskReports() {
   return (
-    <article className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-purple-50">
+    <article className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       <div className="max-w-3xl mx-auto px-6 py-12">
 
         <Link
           href="/blog"
-          className="text-sm text-pink-700 hover:underline mb-8 inline-block"
+          className="text-sm text-pink-700 hover:underline mb-8 inline-block dark:text-pink-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 rounded px-2 py-1"
         >
           ← Voltar
         </Link>
 
         <header className="mb-12">
 
-          <span className="inline-block bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-xs font-medium mb-4">
+          <span className="inline-block bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-xs font-medium mb-4 dark:bg-pink-900 dark:text-pink-200">
             Python
           </span>
 
-          <h1 className="text-5xl font-bold text-slate-900 leading-tight mb-4">
+          <h1 className="text-5xl font-bold text-slate-900 leading-tight mb-4 dark:text-white">
             Automatizando relatórios com Python e Flask
           </h1>
 
-          <p className="text-lg text-slate-600 max-w-2xl mb-8">
+          <p className="text-lg text-slate-600 max-w-2xl mb-8 dark:text-slate-200">
             Automatizar relatórios é uma das aplicações mais comuns de Python
             em ambientes industriais e corporativos. Neste exemplo vamos
             construir um pequeno serviço com Flask que gera alertas de OEE
@@ -30,7 +30,7 @@ export default function FlaskReports() {
             Telegram.
           </p>
 
-          <div className="flex items-center gap-4 border-t border-b border-pink-100 py-4 text-sm text-slate-500">
+          <div className="flex items-center gap-4 border-t border-b border-pink-100 py-4 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
 
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white flex items-center justify-center font-semibold">
@@ -38,20 +38,20 @@ export default function FlaskReports() {
               </div>
 
               <div>
-                <p className="font-medium text-slate-800">
+                <p className="font-medium text-slate-800 dark:text-slate-200">
                   Leiriele Corrêa
                 </p>
-                <p className="text-xs">
+                <p className="text-xs dark:text-slate-400">
                   Autora
                 </p>
               </div>
             </div>
 
-            <span className="text-pink-300">•</span>
+            <span className="text-pink-300 dark:text-slate-600">•</span>
 
             <p>14 mar 2026</p>
 
-            <span className="text-pink-300">•</span>
+            <span className="text-pink-300 dark:text-slate-600">•</span>
 
             <p>Leitura de 6 min</p>
 
@@ -59,9 +59,9 @@ export default function FlaskReports() {
 
         </header>
 
-        <section className="space-y-8 text-slate-700 leading-8 text-lg">
+        <section className="space-y-8 text-slate-700 leading-8 text-lg dark:text-slate-200">
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             O que é OEE
           </h2>
 
@@ -81,14 +81,14 @@ export default function FlaskReports() {
             alertas são enviados quando o valor fica abaixo de um limite.
           </p>
 
-          <div className="bg-purple-50 border border-purple-200 p-5 rounded-xl">
-            <p className="text-purple-800 text-sm">
+          <div className="bg-purple-50 border border-purple-200 p-5 rounded-xl dark:bg-purple-950 dark:border-purple-900">
+            <p className="text-purple-800 text-sm dark:text-purple-300">
               💡 Automatizar relatórios reduz trabalho manual e permite reagir
               rapidamente a problemas na produção.
             </p>
           </div>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             Instalando dependências
           </h2>
 
@@ -97,15 +97,15 @@ export default function FlaskReports() {
             Pandas para manipular dados.
           </p>
 
-          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto">
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
 {`pip install flask pandas requests`}
           </pre>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             Estrutura básica da aplicação
           </h2>
 
-          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto">
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
 {`project
 ├── app.py
 ├── service
@@ -113,11 +113,11 @@ export default function FlaskReports() {
 └── requirements.txt`}
           </pre>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             Criando a API com Flask
           </h2>
 
-          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto">
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
 {`from flask import Flask, jsonify
 from oee_service import calcular_oee
 
@@ -134,11 +134,11 @@ def verificar_oee():
     })`}
           </pre>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             Simulando cálculo de OEE
           </h2>
 
-          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto">
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
 {`import random
 
 def calcular_oee():
@@ -152,7 +152,7 @@ def calcular_oee():
     return round(oee * 100, 2)`}
           </pre>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             Enviando alerta para o Telegram
           </h2>
 
@@ -160,7 +160,7 @@ def calcular_oee():
             Podemos integrar o sistema com o Telegram usando o Bot API.
           </p>
 
-          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto">
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
 {`import requests
 
 def enviar_alerta(oee):
@@ -178,7 +178,7 @@ def enviar_alerta(oee):
     })`}
           </pre>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             Verificando limite mínimo
           </h2>
 
@@ -187,7 +187,7 @@ def enviar_alerta(oee):
             de um limite configurado.
           </p>
 
-          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto">
+          <pre className="bg-slate-950 text-white p-6 rounded-xl overflow-x-auto border border-slate-800 dark:bg-slate-900 dark:border-slate-700">
 {`def verificar_alerta():
 
     oee = calcular_oee()
@@ -198,7 +198,7 @@ def enviar_alerta(oee):
     return oee`}
           </pre>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             Possíveis evoluções
           </h2>
 
@@ -210,7 +210,7 @@ def enviar_alerta(oee):
             <li>Enviar relatórios diários automaticamente</li>
           </ul>
 
-          <h2 className="text-2xl font-bold text-slate-900">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             Conclusão
           </h2>
 
@@ -223,15 +223,15 @@ def enviar_alerta(oee):
 
         </section>
 
-        <div className="mt-16 border-t border-pink-100 pt-10">
+        <div className="mt-16 border-t border-pink-100 pt-10 dark:border-slate-800">
 
-          <p className="text-sm text-slate-500 mb-4">
+          <p className="text-sm text-slate-500 mb-4 dark:text-slate-400">
             Gostou do artigo?
           </p>
 
           <Link
             href="/blog"
-            className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-xl font-medium hover:opacity-90 transition"
+            className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-xl font-medium hover:opacity-90 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-600"
           >
             Ver mais artigos
           </Link>
